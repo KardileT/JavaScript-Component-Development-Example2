@@ -11,7 +11,7 @@ import ShortsImage from './images/shorts.png';
 import ShoesImage from './images/shoes.png';
 import ThreadImage from './images/thread.png';
 
-
+//JSON Data
 const jsonModel = {
   "Matching Scheme": "Simple",
   "matchtype": "1:1",
@@ -88,7 +88,7 @@ function App() {
       y2: y,
     });
   };
-
+//To connect one pair at a time (1 to 1) 
   const handleMouseUp = (e) => {
     if (!dragging) return;
     const targetId = e.target.id;
@@ -116,7 +116,6 @@ function App() {
       return;
     }
 
-    //let allCorrect = true;
     let correctCount = 0;
     connections.forEach((connection) => {
       const columnAId = connection.columnA;
@@ -125,7 +124,7 @@ function App() {
         correctCount++;
       }
     });
-    
+  //Correct Answer count
     if (correctCount === 5) {
       alert("Congratulations! You've achieved a perfect score of 5 out of 5!");
     } else if (correctCount === 0) {
@@ -183,6 +182,7 @@ function App() {
     };
   }, [dragging]);
 
+//Switch case for Text and their image
   const getImageForItem = (item) => {
     switch (item) {
       case 'Needle':
@@ -210,7 +210,7 @@ function App() {
     }
   };
 
-// rerendering pairs
+// rerendering pairs for repositioning of connected pairs
 useEffect(() => {
   const handleWindowResize = () => {
     // Recalculate and update the positions of connections
@@ -247,6 +247,7 @@ useEffect(() => {
   };
 }, [connections]); // Re-run effect when connections change
 
+//Fetching JSON values and display in table format.
   return (
     <div className="App">
       <h1>Matching Fractions and It's Figures</h1>
