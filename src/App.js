@@ -29,7 +29,7 @@ const jsonModel = {
     },
     {
       "column": "Column B",
-      "type": "string",
+      "type": "Image",
       "values": [
         "Ball",
         "spoon",
